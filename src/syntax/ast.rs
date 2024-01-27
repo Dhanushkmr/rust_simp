@@ -7,7 +7,7 @@ C ::= 1 | 2 | ... | true | false
 X ::= a | b | c | d
 */
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Stmt {
     Assign {
         x: Var,
@@ -28,10 +28,10 @@ pub enum Stmt {
     },
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct Var(pub String);
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Exp {
     Plus { e1: Box<Exp>, e2: Box<Exp> },
     Minus { e1: Box<Exp>, e2: Box<Exp> },
@@ -77,7 +77,7 @@ pub enum Factor {
     ParenExpP { e: Box<ExpLE> },
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Const {
     IntConst { v: usize },
     BoolConst { v: bool },
