@@ -27,7 +27,7 @@ fn consume_token(expected: LToken) -> impl Fn(&[Token]) -> IResult<&[Token], &To
     }
 }
 
-fn parse_stmts(input: &[Token]) -> IResult<&[Token], Vec<Stmt>> {
+pub fn parse_stmts(input: &[Token]) -> IResult<&[Token], Vec<Stmt>> {
     let (input, stmts) = many0(parse_one)(input)?;
     Ok((input, stmts))
 }

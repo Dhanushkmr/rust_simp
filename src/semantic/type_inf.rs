@@ -288,7 +288,7 @@ fn ground(varname: String, subst: TypeSubst) -> Result<Type, String> {
     }
 }
 
-fn type_inf(s: Vec<Stmt>) -> Result<TypeEnv, String> {
+pub fn type_inf(s: Vec<Stmt>) -> Result<TypeEnv, String> {
     let type_constraints = s.infer();
     match type_constraints.mgu() {
         Err(err_msg) => Err(err_msg),

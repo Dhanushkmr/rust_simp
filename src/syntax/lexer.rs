@@ -224,7 +224,7 @@ fn parse_token<'a>(input: &'a str, src_loc: &mut SrcLoc) -> IResult<&'a str, Tok
     Ok((remaining, token))
 }
 
-fn parse_tokens(input: &str) -> IResult<&str, Vec<Token>> {
+pub fn parse_tokens(input: &str) -> IResult<&str, Vec<Token>> {
     let mut src_loc = SrcLoc::new();
     let mut remaining = input;
     let mut tokens = Vec::new();
